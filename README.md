@@ -14,3 +14,4 @@ this project used [The Movie Database (TMDB)](https://developer.themoviedb.org/d
 - Display the flim rating and cast
 - Responsiveness
 - where to find it ? for example netflex, Amazon Prime, Disney+
+-   
