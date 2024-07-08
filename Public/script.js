@@ -162,3 +162,37 @@ form.addEventListener('submit', (e) => {
 
 
 
+const apiKey = 'da372d2500msh991e68d6a34e093p1121bfjsn146a93bfa564';
+const movieTitle = 'movie'; // Example movie title
+
+async function fetchStreamingServices(title) {
+  const response = await fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${title}&country=us`, {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com',
+      'x-rapidapi-key': apiKey
+    }
+  });
+  const data = await response.json();
+  return data;
+}
+
+function displayStreamingServices(services) {
+  const servicesContainer = document.getElementById('services-showall');
+  servicesContainer.innerHTML = ''; // Clear previous results
+
+  services.forEach(service => {
+    const serviceElement = document.createElement('div');
+    serviceElement.classList.add('service');
+    serviceElement.innerHTML = `
+      <img src="${service.icon}" alt="${service.display_name}">
+      <p>${service.display_name}</p>
+    `;
+    servicesContainer.appendChild(serviceElement);
+  });
+}
+
+fetchStreamingServices(movieTitle).then(data => {
+  const services = data.results[0].locations;
+  displayStreamingServices(services);
+});

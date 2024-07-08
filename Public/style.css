@@ -453,3 +453,34 @@
       top: 75px;
     }
   }
+
+  // Watch panel 
+  .watch-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 700px;
+    margin: 32px auto;
+    color: #fff;
+  }
+  
+  .services-showall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 700px;
+    margin: 32px auto;
+    color: #fff;
+  }
+  
+  .service {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .service img {
+    width: 50px;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
